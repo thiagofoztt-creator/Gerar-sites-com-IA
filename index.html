@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criador de Sites — Thiago IA</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Card principal -->
+    <div class="card">
+
+        <div class="badge">⚡ Thiago — Gerador com IA</div>
+
+        <h1>Crie sua página<br>com <em>inteligência</em></h1>
+
+        <p class="subtitle">
+            Descreva o seu negócio e veja a IA criar uma página profissional em segundos — sem código, sem complicação.
+        </p>
+
+        <label class="field-label" for="prompt">Descreva seu negócio</label>
+
+        <div class="textarea-wrap">
+            <textarea
+                id="prompt"
+                placeholder="Ex: Sou Estudante da Ciência da Computação e estou criando projetos afins de estudo em Curitiba"
+            ></textarea>
+        </div>
+
+        <button class="btn-gerar" id="btnGerar">✦ Gerar minha página</button>
+
+        <p class="status" id="status"></p>
+
+        <div class="divider"></div>
+
+        <p class="footer-note">
+        <span>IA generativa</span> &nbsp;·&nbsp;
+        </p>
+
+    </div>
+
+    <!-- Área de preview gerado pela IA -->
+    <div class="resultado" id="resultado" style="display:none;">
+        <p class="resultado-label">✦ Sua página gerada</p>
+        <iframe id="preview" frameborder="0"></iframe>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

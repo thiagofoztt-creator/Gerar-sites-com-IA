@@ -1,0 +1,305 @@
+/* ============================================================
+   style.css — Gerador de Sites · Thiago IA
+   Aesthetic: Luxury Minimal · Dark Editorial
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Outfit:wght@300;400;500;600&display=swap');
+
+/* ── Variables ─────────────────────────────────────────────── */
+:root {
+    --bg:           #080810;
+    --surface:      #0f0f1a;
+    --surface-2:    #151525;
+    --border:       rgba(255, 255, 255, 0.07);
+    --border-hover: rgba(255, 255, 255, 0.14);
+
+    --accent:      #a78bfa;
+    --accent-dim:  rgba(167, 139, 250, 0.12);
+    --accent-glow: rgba(167, 139, 250, 0.2);
+
+    --gold:     #c9a84c;
+    --gold-dim: rgba(201, 168, 76, 0.1);
+
+    --text-primary:   #f0f0f8;
+    --text-secondary: #8888a8;
+    --text-muted:     #44445a;
+
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+
+    --shadow-card: 0 32px 80px rgba(0, 0, 0, 0.6),
+                   0 0 0 1px rgba(255, 255, 255, 0.04);
+    --shadow-btn:  0 8px 32px rgba(167, 139, 250, 0.25);
+
+    --transition: 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Reset ─────────────────────────────────────────────────── */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ── Body ──────────────────────────────────────────────────── */
+body {
+    background-color: var(--bg);
+    color: var(--text-primary);
+    font-family: 'Outfit', sans-serif;
+    font-weight: 400;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 2rem;
+    -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 70% 55% at 15% 10%,  rgba(167,139,250,0.07) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 45% at 85% 90%,  rgba(201,168,76,0.05)  0%, transparent 55%),
+        radial-gradient(ellipse 40% 60% at 50% 50%,  rgba(10,10,30,0.8)     0%, transparent 80%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* ── Card ──────────────────────────────────────────────────── */
+.card {
+    position: relative;
+    z-index: 1;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 3.5rem 4rem;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: var(--shadow-card);
+    animation: revealCard 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* linha decorativa no topo */
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 10%; right: 10%;
+    height: 1px;
+    background: linear-gradient(90deg,
+        transparent,
+        rgba(167,139,250,0.5) 40%,
+        rgba(201,168,76,0.4)  60%,
+        transparent);
+    border-radius: 999px;
+}
+
+/* ── Badge ─────────────────────────────────────────────────── */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: var(--gold-dim);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 999px;
+    padding: 5px 16px;
+    margin-bottom: 2.2rem;
+    animation: revealUp 0.6s 0.15s both;
+}
+
+/* ── Heading ───────────────────────────────────────────────── */
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 2.9rem);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin-bottom: 1rem;
+    animation: revealUp 0.6s 0.25s both;
+}
+
+h1 em {
+    font-style: italic;
+    background: linear-gradient(110deg, var(--accent) 30%, var(--gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ── Subtitle ──────────────────────────────────────────────── */
+.subtitle {
+    font-size: 0.95rem;
+    font-weight: 300;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 2.4rem;
+    animation: revealUp 0.6s 0.35s both;
+}
+
+/* ── Label ─────────────────────────────────────────────────── */
+.field-label {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.6rem;
+    animation: revealUp 0.6s 0.4s both;
+}
+
+/* ── Textarea ──────────────────────────────────────────────── */
+.textarea-wrap {
+    animation: revealUp 0.6s 0.45s both;
+}
+
+textarea {
+    width: 100%;
+    min-height: 148px;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 1.1rem 1.3rem;
+    color: var(--text-primary);
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.93rem;
+    font-weight: 300;
+    line-height: 1.65;
+    resize: vertical;
+    outline: none;
+    transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+textarea::placeholder { color: var(--text-muted); }
+
+textarea:focus {
+    border-color: rgba(167,139,250,0.4);
+    box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+/* ── Botão ─────────────────────────────────────────────────── */
+.btn-gerar {
+    margin-top: 1.2rem;
+    width: 100%;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, #7c5cbf 0%, #5b3fa0 100%);
+    border: 1px solid rgba(167,139,250,0.25);
+    border-radius: var(--radius-md);
+    color: #fff;
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.92rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: transform var(--transition),
+                box-shadow var(--transition),
+                background var(--transition),
+                opacity var(--transition);
+    box-shadow: var(--shadow-btn);
+    animation: revealUp 0.6s 0.55s both;
+}
+
+.btn-gerar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(167,139,250,0.38);
+    background: linear-gradient(135deg, #8f6dd4 0%, #6b4faf 100%);
+}
+
+.btn-gerar:active {
+    transform: translateY(0px);
+    opacity: 0.88;
+}
+
+.btn-gerar:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* ── Divider ───────────────────────────────────────────────── */
+.divider {
+    height: 1px;
+    background: var(--border);
+    margin: 2.4rem 0;
+    animation: revealUp 0.6s 0.6s both;
+}
+
+/* ── Footer ────────────────────────────────────────────────── */
+.footer-note {
+    text-align: center;
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+    animation: revealUp 0.6s 0.65s both;
+}
+
+.footer-note span { color: var(--accent); }
+
+/* ── Status ────────────────────────────────────────────────── */
+.status {
+    margin-top: 0.9rem;
+    font-size: 0.82rem;
+    text-align: center;
+    color: var(--text-muted);
+    min-height: 1.2em;
+    letter-spacing: 0.02em;
+    transition: color var(--transition);
+}
+
+.status.erro    { color: #f87171; }
+.status.sucesso { color: #6ee7b7; }
+
+/* ── Animations ────────────────────────────────────────────── */
+@keyframes revealCard {
+    from { opacity: 0; transform: translateY(32px) scale(0.98); filter: blur(4px); }
+    to   { opacity: 1; transform: translateY(0)    scale(1);    filter: blur(0);   }
+}
+
+@keyframes revealUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0);    }
+}
+
+/* ── Responsivo ────────────────────────────────────────────── */
+@media (max-width: 520px) {
+    .card { padding: 2.2rem 1.6rem; }
+    h1    { font-size: 1.8rem; }
+}
+
+/* ── Preview resultado ─────────────────────────────────────── */
+.resultado {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 960px;
+    margin-top: 2.5rem;
+    animation: revealUp 0.5s ease both;
+}
+
+.resultado-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.8rem;
+    text-align: center;
+}
+
+#preview {
+    width: 100%;
+    height: 600px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: #fff;
+    box-shadow: var(--shadow-card);
+}
